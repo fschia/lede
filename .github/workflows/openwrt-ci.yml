@@ -59,11 +59,15 @@ jobs:
           rm -f ./.config*
           touch ./.config         
           
-          # 编译x64固件:
+          # 编译x86固件:
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_legacy=y
           CONFIG_TARGET_x86_legacy_Generic=y
+          EOF
+          
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-pcmcia-core=y
           EOF
           
       - name: Generate configuration file
