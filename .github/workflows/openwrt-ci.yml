@@ -62,8 +62,8 @@ jobs:
           # 编译x64固件:
           cat >> .config <<EOF
           CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_generic=y
-          CONFIG_TARGET_x86_generic_Generic=y
+          CONFIG_TARGET_x86_legacy=y
+          CONFIG_TARGET_x86_legacy_Generic=y
           EOF
           
       - name: Generate configuration file
