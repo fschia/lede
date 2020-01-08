@@ -10,8 +10,9 @@
 name: OpenWrt-CI
 
 on:
-  schedule:
-    - cron: 0 20 * * *
+  push:
+    branches: 
+      - master
 
 jobs:
 
@@ -52,7 +53,19 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
+          
+      - name: Costom configure file
+        run: |
+          rm -f ./.config*
+          touch ./.config         
+          
+          # 编译x64固件:
+          cat >> .config <<EOF
+          CONFIG_TARGET_x86=y
+          CONFIG_TARGET_x86_generic=y
+          CONFIG_TARGET_x86_generic_Generic=y
+          EOF
+          
       - name: Generate configuration file
         run: make defconfig
 
