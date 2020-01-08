@@ -68,6 +68,12 @@ jobs:
           
           cat >> .config <<EOF
           CONFIG_PACKAGE_kmod-pcmcia-core=y
+          CONFIG_PACKAGE_kmod-pcmcia-rsrc=y
+          CONFIG_PACKAGE_kmod-pcmcia-bcm63xx=y
+          CONFIG_PACKAGE_kmod-pcmcia-yenta=y
+          CONFIG_PACKAGE_kmod-pcmcia-nozomi=y
+          CONFIG_TARGET_KERNEL_PARTSIZE=16
+          CONFIG_TARGET_ROOTFS_PARTSIZE=900
           EOF
           
       - name: Generate configuration file
