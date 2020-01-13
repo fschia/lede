@@ -64,6 +64,10 @@ jobs:
           CONFIG_TARGET_x86=y
           CONFIG_TARGET_x86_legacy=y
           CONFIG_TARGET_x86_legacy_Generic=y
+          CONFIG_PACKAGE_curl=y
+          CONFIG_PACKAGE_htop=y
+          CONFIG_PACKAGE_nano=y
+          CONFIG_PACKAGE_wget=y
           EOF
           
           cat >> .config <<EOF
